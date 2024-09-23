@@ -6,7 +6,19 @@ import {
   DashboardLayout,
   Landing,
   Error,
+  AddJob,
+  AllJobs,
+  Profile,
+  Stats,
 } from "./pages";
+
+export const checkDefaultTheme = () => {
+  const isDarkTheme = localStorage.getItem("darkTheme") === "true";
+  document.body.classList.toggle("dark-theme", isDarkTheme);
+  return isDarkTheme;
+};
+
+checkDefaultTheme();
 
 const router = createBrowserRouter([
   {
@@ -29,6 +41,24 @@ const router = createBrowserRouter([
       {
         path: "dashboard",
         element: <DashboardLayout />,
+        children: [
+          {
+            index: true,
+            element: <AddJob />,
+          },
+          {
+            path: "all-jobs",
+            element: <AllJobs />,
+          },
+          {
+            path: "profile",
+            element: <Profile />,
+          },
+          {
+            path: "stats",
+            element: <Stats />,
+          },
+        ],
       },
     ],
   },
