@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 import Wrapper from "../assets/wrappers/RegisterAndLoginPage";
-import { Logo } from "../components";
-import FormRow from "../components/FormRow";
+import { Logo, FormRow } from "../components";
 
 const Register = () => {
   return (
@@ -43,7 +42,11 @@ const Register = () => {
         </button>
         <p>
           Already a member?
-          <Link to="/login">Login</Link>
+          <Link
+            to="/login"
+            className="member-btn">
+            Login
+          </Link>
         </p>
       </form>
     </Wrapper>
