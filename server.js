@@ -8,6 +8,7 @@ import mongoose from "mongoose";
 
 //routers
 import jobRouter from "./Routes/jobRouter.js";
+import authRouter from "./Routes/authRouter.js";
 
 //middlewares
 import errorHandlerMiddleware from "./middleware/errorHandlerMiddleware.js";
@@ -22,7 +23,10 @@ app.use(express.json());
 app.get("/", (req, res) => {
   res.send("hello world ...");
 });
+
 app.use("/api/v1/jobs", jobRouter);
+app.use("/api/v1/auth", authRouter);
+
 app.use("*", (req, res) => {
   res.status(404).json({ msg: "not found" });
 });
