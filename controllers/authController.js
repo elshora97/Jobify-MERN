@@ -2,6 +2,7 @@ import { StatusCodes } from "http-status-codes";
 import User from "../models/UserModel.js";
 import { hashPassword, comparePassword } from "../utils/passwordUtils.js";
 import { UnauthenticatedError } from "../errors/customError.js";
+import { createJWT } from "../utils/tokenUtils.js";
 
 export const register = async (req, res) => {
   const isFirstAccount = (await User.countDocuments()) === 0;

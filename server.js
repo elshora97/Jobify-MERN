@@ -5,6 +5,7 @@ import express from "express";
 const app = express();
 import morgan from "morgan";
 import mongoose from "mongoose";
+import cookieParser from "cookie-parser";
 
 //routers
 import jobRouter from "./Routes/jobRouter.js";
@@ -12,19 +13,21 @@ import authRouter from "./Routes/authRouter.js";
 
 //middlewares
 import errorHandlerMiddleware from "./middleware/errorHandlerMiddleware.js";
+import { authenticateUser } from "./middleware/authMiddleware.js";
 
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
 const port = process.env.PORT || 3000;
 
+app.use(cookieParser());
 app.use(express.json());
 
 app.get("/", (req, res) => {
   res.send("hello world ...");
 });
 
-app.use("/api/v1/jobs", jobRouter);
+app.use("/api/v1/jobs", authenticateUser, jobRouter);
 app.use("/api/v1/auth", authRouter);
 
 app.use("*", (req, res) => {
