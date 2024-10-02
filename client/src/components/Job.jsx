@@ -50,7 +50,9 @@ const Job = ({
             className="btn edit-btn">
             Edit
           </Link>
-          <Form>
+          <Form
+            method="post"
+            action={`../delete-job/${_id}`}>
             <button
               type="submit"
               className="btn delete-btn">
