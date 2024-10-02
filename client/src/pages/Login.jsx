@@ -1,5 +1,5 @@
 import { toast } from "react-toastify";
-import customFetch from "../../utils/customFetch";
+import customFetch from "../utils/customFetch";
 import Wrapper from "../assets/wrappers/RegisterAndLoginPage";
 import { Logo, FormRow } from "../components";
 import { Form, Link, redirect, useNavigation } from "react-router-dom";
@@ -31,12 +31,12 @@ const Login = () => {
         <FormRow
           type="email"
           name="email"
-          defaultValue="test@test.com"
+          defaultValue="elshora@gmail.com"
         />
         <FormRow
           type="password"
           name="password"
-          defaultValue="secret"
+          defaultValue="Sa0123456"
         />
         <button
           type="submit"

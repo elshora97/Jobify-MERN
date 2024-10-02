@@ -1,7 +1,7 @@
 import { Form, Link, redirect, useNavigation } from "react-router-dom";
 import Wrapper from "../assets/wrappers/RegisterAndLoginPage";
 import { Logo, FormRow } from "../components";
-import customFetch from "../../utils/customFetch";
+import customFetch from "../utils/customFetch";
 import { toast } from "react-toastify";
 
 export const action = async ({ request }) => {
