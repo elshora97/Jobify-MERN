@@ -50,7 +50,7 @@ const Register = () => {
         <FormRow
           type="password"
           name="password"
-          defaultValue="123456789"
+          defaultValue="Sa123456"
         />
         <SubmitBtn />
 

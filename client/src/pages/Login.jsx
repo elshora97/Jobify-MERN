@@ -2,7 +2,7 @@ import { toast } from "react-toastify";
 import customFetch from "../utils/customFetch";
 import Wrapper from "../assets/wrappers/RegisterAndLoginPage";
 import { Logo, FormRow, SubmitBtn } from "../components";
-import { Form, Link, redirect } from "react-router-dom";
+import { Form, Link, redirect, useNavigate } from "react-router-dom";
 
 export const action = async ({ request }) => {
   const formData = await request.formData();
@@ -18,6 +18,20 @@ export const action = async ({ request }) => {
 };
 
 const Login = () => {
+  const navigate = useNavigate();
+  const loginDemoUser = async () => {
+    const data = {
+      email: "test@test.com",
+      password: "Sa123456",
+    };
+    try {
+      await customFetch.post("/auth/login", data);
+      toast.success("take a test drive");
+      navigate("/dashboard");
+    } catch (error) {
+      toast.error(error?.response?.data?.msg);
+    }
+  };
   return (
     <Wrapper>
       <Form
@@ -39,7 +53,8 @@ const Login = () => {
 
         <button
           type="button"
-          className="btn btn-block">
+          className="btn btn-block"
+          onClick={loginDemoUser}>
           explore the app
         </button>
         <p>
