@@ -42,12 +42,10 @@ const Login = () => {
         <FormRow
           type="email"
           name="email"
-          defaultValue="elshora@gmail.com"
         />
         <FormRow
           type="password"
           name="password"
-          defaultValue="Sa0123456"
         />
         <SubmitBtn />
 
