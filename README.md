@@ -35,6 +35,7 @@ Jobify is a full-stack MERN (MongoDB, Express, React, Node.js) application desig
    cd Jobify-MERN
 
 2. Create a .env file in the root:
+```bash
 PORT = 5000
 NODE_ENV = development
 MONGO_URI = your_mongo_db_connection_string
