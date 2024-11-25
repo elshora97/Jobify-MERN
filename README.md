@@ -44,6 +44,7 @@ JWT_EXPIRES_IN=
 CLOUD_NAME=
 CLOUD_API_KEY=
 CLOUD_API_SECRET=
+```
 
 3.Run the application:
  ```bash
